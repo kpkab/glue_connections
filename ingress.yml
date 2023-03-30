@@ -1,26 +1,24 @@
 kind: Pod
 apiVersion: v1
 metadata:
-  name: glue_crawler
+  name: glue_connection
   labels:
-    app: glue_crawler
+    app: glue_connection
 spec:
   containers:
-    - name: glue_crawler
-      image: 'vijay165/glue_crawler'
+    - name: glue_connection
+      image: 'vijay165/glue_connection'
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  name: glue_crawler
+  name: glue_connection
 spec:
   selector:
-    app: glue_crawler
+    app: glue_connection
   ports:
     - port: 8000
 ---
-
-
 
 # kind: Pod
 # apiVersion: v1
@@ -49,7 +47,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: glue_crawler
+  name: glue_connection
 spec:
   rules:
     - http:
@@ -58,7 +56,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: glue_crawler
+                name: glue_connection
                 port:
                   number: 8000
           # - path: /bar
