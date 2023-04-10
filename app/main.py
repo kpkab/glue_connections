@@ -61,8 +61,7 @@ async def create_connection(glue: Glue_connection):
 @app.get('/connection/get_connections')
 async def get_connections():
     """
-    This endpoint return the all Glue crawler.
-    The supported target types are: S3Targets, JdbcTargets, CatalogTargets, DeltaTargets.
+    This endpoint return the all Glue connection.
     """
     try:
         response = client.get_connections(
@@ -98,8 +97,7 @@ async def get_connections():
 @app.get('/connection/get_connection/{connection_name}')
 async def get_connection(connection_name: str):
     """
-    This endpoint return the Glue crawler based on param.
-    The supported target types are: S3Targets, JdbcTargets, CatalogTargets, DeltaTargets.
+    This endpoint return the Glue connection.
     """
     try:
         response = client.get_connection(
@@ -162,7 +160,7 @@ async def update_connection(glue: Glue_connection):
 @app.delete("/connection/delete/{connection}")
 async def connection_delete(connection: str):
     """
-    This endpoint creates a Glue crawler for JDBC target.
+    This endpoint delete a Glue connection .
     """
     try:
         response = client.delete_connection(
