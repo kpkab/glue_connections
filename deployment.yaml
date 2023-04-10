@@ -1,19 +1,19 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: glue_connection
+  name: glue-connection
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: glue_connection
+      app: glue-connection
   template:
     metadata:
       labels:
-        app: glue_connection
+        app: glue-connection
     spec:
       containers:
-      - name: glue_cawler
+      - name: glue-connection
         image:  vijay165/glue_connection
         ports:
         - containerPort: 80
